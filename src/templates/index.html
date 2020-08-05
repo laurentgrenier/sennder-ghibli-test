@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <title>Movies</title>
     <link href="https://fonts.googleapis.com/css?family=Tomorrow&display=swap" rel="stylesheet">
+    <link rel='icon' href='assets/images/favicon.ico' type='image/x-icon'>
+
     <style>
         body {
             font-family: 'Tomorrow', sans-serif;
@@ -63,13 +65,26 @@
         }
 
     </style>
+    <script>
+        function init() {
+            var imgDefer = document.getElementsByTagName('img');
+
+            for (var i=0; i<imgDefer.length; i++) {
+                if(imgDefer[i].getAttribute('data-src')) {
+                    imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
+                }
+            }
+        }
+
+        window.onload = init;
+    </script>
 </head>
 <body>
     <div class="films">
         <div class="header">&nbsp;</div>
         {% for movie in movies %}
         <div class="film">
-            <div class="picture">&nbsp;</div>
+            <img class="picture" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ movie.cover }}"/>
             <div class="infos">
                 <div class="title">{{ movie.title }}</div>
                 <div class="character">
