@@ -1,6 +1,6 @@
 from flask import render_template
 from flask import Blueprint
-from src.back.services.ghibli_services import get_movies
+from back.services.ghibli_services import get_movies
 from flask_caching import Cache
 
 movies_page = Blueprint('movies_page', __name__, template_folder="templates")

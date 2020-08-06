@@ -1,4 +1,4 @@
-from src.back.services.ghibli_services import get_people, get_movies, get_films
+from back.services.ghibli_services import get_people, get_movies, get_films
 
 
 def test_get_people():

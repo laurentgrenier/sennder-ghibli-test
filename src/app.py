@@ -2,11 +2,11 @@
 from flask import Flask
 from flask_cors import CORS
 
-from src.back.apis.cover_api import cover_api
-from src.back.apis.assets_api import assets_api
+from back.apis.cover_api import cover_api
+from back.apis.assets_api import assets_api
 
-from src.front.pages import cache
-from src.front.pages import movies_page
+from front.pages import cache
+from front.pages import movies_page
 
 
 def create_app():

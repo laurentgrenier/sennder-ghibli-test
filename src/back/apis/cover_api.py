@@ -1,5 +1,5 @@
 from flask import Blueprint, jsonify
-from src.back.services.tmdb_services import get_cover_path
+from back.services.tmdb_services import get_cover_path
 
 cover_api = Blueprint('cover_api', __name__)
 

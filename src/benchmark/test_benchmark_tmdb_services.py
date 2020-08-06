@@ -1,4 +1,4 @@
-from src.back.services.tmdb_services import get_cover_path
+from back.services.tmdb_services import get_cover_path
 
 
 def test_benchmark_get_cover_path(benchmark):
