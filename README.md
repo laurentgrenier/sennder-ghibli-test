@@ -35,8 +35,6 @@ pytest -v src/benchmark
 
 ![Benchmark result example](images/benchmarks.png "A benchmark result example")
 
-[TMDB](https://www.themoviedb.org/)
-
 > Verbose mode is prefered to follow benchmark execution during developments.
 
 ## Pycharm settings 
