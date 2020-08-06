@@ -11,5 +11,5 @@ cache = Cache(config={'CACHE_TYPE': 'simple'})
 @cache.cached(timeout=60)
 def movies_page_get():
     movies = get_movies()
-    return render_template("index.html", movies=movies)
+    return render_template("movies.html", movies=movies, base_url="http://localhost:8000/")
 

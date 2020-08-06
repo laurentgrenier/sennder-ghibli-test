@@ -12,6 +12,5 @@ def get_cover_path(title):
     url = base_url.format(apikey, title)
     response = requests.get(url)
     cover = response.json()['results'][0]
-    print(cover)
 
     return "http://image.tmdb.org/t/p/w500/" + cover['poster_path']

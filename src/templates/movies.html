@@ -66,25 +66,33 @@
 
     </style>
     <script>
-        function init() {
-            var imgDefer = document.getElementsByTagName('img');
+        function setCovers() {
+            const movies = document.getElementsByClassName('film');
+            const base_url = "{{ base_url|safe }}";
 
-            for (var i=0; i<imgDefer.length; i++) {
-                if(imgDefer[i].getAttribute('data-src')) {
-                    imgDefer[i].setAttribute('src',imgDefer[i].getAttribute('data-src'));
-                }
+            for (let movie of movies) {
+                let title = movie.getElementsByClassName('title')[0].innerHTML;
+                setCover(base_url, title)
             }
         }
 
-        window.onload = init;
+        function setCover(base_url, title){
+            let query = base_url + "cover/" + title;
+
+            fetch(query)
+                .then(response => response.json())
+                .then(cover => document.getElementById(cover['title']).getElementsByTagName('img')[0].src = cover['path'])
+        }
+
+        window.onload = setCovers;
     </script>
 </head>
 <body>
     <div class="films">
         <div class="header">&nbsp;</div>
         {% for movie in movies %}
-        <div class="film">
-            <img class="picture" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs=" data-src="{{ movie.cover }}"/>
+        <div class="film" id="{{ movie.title }}">
+            <img class="picture" src="data:image/png;base64,R0lGODlhAQABAAD/ACwAAAAAAQABAAACADs="/>
             <div class="infos">
                 <div class="title">{{ movie.title }}</div>
                 <div class="character">
